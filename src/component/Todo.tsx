@@ -28,7 +28,7 @@ const Todo:React.FC<Props> = ({fn}) => {
 
     //fetch all todos
     useEffect(() => {
-        fetch("http://localhost:5000/todos")
+        fetch("https://todonodeapplication.herokuapp.com/todos")
             .then(res => res.json())
             .then(data => setTodos(data))
     }, [updateTodo, fn]);
@@ -38,7 +38,7 @@ const Todo:React.FC<Props> = ({fn}) => {
     function deleteTodo(id: string) {
         const confirm = window.confirm("Are you sure to delete");
         if (confirm) {
-            fetch(`http://localhost:5000/todos/${id}`, {
+            fetch(`https://todonodeapplication.herokuapp.com/todos/${id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

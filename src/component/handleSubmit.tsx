@@ -21,7 +21,7 @@ const handleSubmit = (e: React.FormEvent<HTMLFormElement>, title: string, descri
 
 
 function postTodo(todo: todo, fn: ()=> void) {
-    fetch("http://localhost:5000/todos", {
+    fetch("https://todonodeapplication.herokuapp.com/todos", {
         method: "POST",
         headers: {
             "content-type": "application/json"
