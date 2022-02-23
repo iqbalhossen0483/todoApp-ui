@@ -1,24 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import AddTodo from "./component/AddTodo";
+import Todo from "./component/Todo";
+import MyButton from "./utilitize/MyButton";
+
 
 function App() {
+  const [addTodo, setAddTodo] = useState<boolean>(false);
+
+  function handleAddTodoForm(): void{
+    if (addTodo) {
+      setAddTodo(false);
+    }
+    else {
+      setAddTodo(true);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {/* add todo button */}
+      <div className="my-5">
+        <MyButton fn={handleAddTodoForm}>add todo</MyButton>
+      </div>
+
+      {/* todo component */}
+      <Todo fn={handleAddTodoForm} />
+
+      {/* add todo form */}
+      {addTodo && <AddTodo fn={handleAddTodoForm} />}
     </div>
   );
 }

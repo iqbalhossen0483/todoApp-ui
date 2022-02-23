@@ -1,13 +1,42 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base{
+    h2{
+        @apply text-xl font-semibold
+    }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@layer components{
+    .add-todo-wrapper{
+        @apply absolute bg-white top-0 left-0 w-full h-full z-20
+    }
+    .add-todo-container{
+        @apply w-96 mx-auto my-16 shadow-md border p-5 rounded
+    }
+    .todo-wrapper{
+        @apply grid grid-cols-4 gap-5 mx-7
+    }
+    .todo{
+        @apply border rounded px-5 py-3 shadow-md relative
+    }
+    .icon{
+        @apply absolute top-0 right-0 p-3 text-slate-300 cursor-pointer
+    }
+    .todo .menu{
+        @apply border py-3 rounded absolute -top-7 right-6 bg-white shadow-md
+    }
+    .todo .menu button{
+        @apply hover:bg-slate-100 px-4 font-medium py-1
+    }
+    .input{
+        @apply border border-slate-300 px-3 py-1 rounded focus:outline-none hover:border-slate-600 focus:border-blue-400 focus:border-2 my-2
+    }
+}
+
+@layer utilities{
+    .todo:hover .icon{
+        color: #000;
+    }
 }
